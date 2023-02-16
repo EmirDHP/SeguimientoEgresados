@@ -1,0 +1,648 @@
+﻿@model IEnumerable<SeguimientoEgresados.Models.ViewModel_Preguntas>
+
+@{
+    ViewBag.Title = "TotalRespuestas";
+}
+
+<style>
+    table.dataTable.no-footer {
+        border-bottom: 0 !important;
+    }
+</style>
+
+<!-- Button trigger modal -->
+<div class="card" style="margin-bottom:40%;">
+    <h5 class="card-header">Encuestas totales</h5>
+    <div class="card-body">
+        <h5 class="card-title">Descargar encuestas</h5>
+        <p class="card-text">Para poder descargar todas las respuestas realizadas, presione el botón "Descargar" en la parte inferior.</p>
+        <div>
+            @Html.ActionLink("Regresar", "Index", "Preguntas", null, new { @class = "btn btn-secondary btn-md me-md-2" })
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Descargar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Descargar encuestas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Selecciona el formato ha descargar</p>
+                <table class="table" id="tablatotal">
+                    <thead>
+                        <tr class="visually-hidden">
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_Matricula)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_ApellidoPaterno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_ApellidoMaterno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_Nombres)
+                            </th>
+                            <th>
+                                Carrera / Área
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_CorreoElectronicoPersonal)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IP_NumeroTelefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DG_EstadoCivil)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DG_UltimoNivelEscolar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DG_InstitucionEstudiasActualmente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG5_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG5_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG5_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG5_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG5_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG6_1_NombreEmpresa)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG6_2_Municipio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG6_3_Estado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG11)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG12)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG13)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_6)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_11)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG14_12)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG15)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG16)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_6)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG17_11)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_6)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG18_11)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_6)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG19_10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_4)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_5)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_6)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_7)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_8)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_9)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_10)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_11)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_12)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG20_13)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG21)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SL_PREG22)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AñoInico)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AñoFin)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="visually-hidden">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_Matricula)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_ApellidoPaterno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_ApellidoMaterno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_Nombres)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Areas)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_CorreoElectronicoPersonal)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IP_NumeroTelefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DG_EstadoCivil)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DG_UltimoNivelEscolar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DG_InstitucionEstudiasActualmente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG5_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG5_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG5_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG5_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG5_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG6_1_NombreEmpresa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG6_2_Municipio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG6_3_Estado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG11)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG12)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG13)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_11)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG14_12)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG15)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG16)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG17_11)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG18_11)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG19_10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_8)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_11)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_12)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG20_13)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG21)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SL_PREG22)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AñoInico)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AñoFin)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="~/DataTables/datatables.css" rel="stylesheet" />
+
+
+<script src="~/DataTables/datatables.js"></script>
+@*<script src="~/DataTables/datatables.min.js"></script>*@
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablatotal').DataTable({
+            //dom: 'Bfrltip',
+            dom: 'Blfrtip',
+            "bLengthChange": false, //thought this line could hide the LengthMenu
+            "bInfo": false,
+            "bPaginate": false,
+            "bFilter": false,
+            "bInfo": false,
+            buttons: [
+                'copy',
+                'excel',
+                'csv',
+                'pdf'
+            ],
+            order: false,
+            //buttons: [
+            //    { extend: 'pdf', text: '<i class="fas fa-file-pdf fa-1x" aria-hidden="true"> Exportar a PDF</i>' },
+            //    { extend: 'csv', text: '<i class="fas fa-file-csv fa-1x"> Exportar a CSV</i>' },
+            //    { extend: 'excel', text: '<i class="fas fa-file-excel" aria-hidden="true"> Exportar a EXCEL</i>' },
+            //    'pageLength'
+            //],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+            }
+        });
+    });
+</script>

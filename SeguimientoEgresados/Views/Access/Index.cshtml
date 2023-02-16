@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Recuperacion";
+}
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="~/Images/UTTN.jpg" />
+<!-- Template Main CSS File -->
+<link href="../assets/css/style.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></script>
+
+
+
+<style>
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
+    html {
+        height: 100%;
+    }
+
+    a:hover {
+        color: #FFFFFF !important;
+        text-decoration: none;
+    }
+
+    .text-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 5em;
+        font-weight: 700;
+        color: #dc3545;
+    }
+
+    .subtitle {
+        font-size: 40px;
+        font-weight: 700;
+        color: #25b192;
+    }
+
+    .isi {
+        font-size: 18px;
+        text-align: center;
+        margin: 30px;
+        padding: 20px;
+    }
+</style>
+
+<div class="text-wrapper">
+    <div class="subtitle" data-content="404">
+        @ViewBag.Message
+    </div>
+    <div class="subtitle" data-content="404" style="color:red">
+        @ViewBag.Error
+    </div>
+
+    <div class="mt-5">
+        @Html.ActionLink("Iniciar Sesión", "Index", "Login", null, new { @class = "btn btn-lg btn-outline-success" })
+    </div>
+</div>

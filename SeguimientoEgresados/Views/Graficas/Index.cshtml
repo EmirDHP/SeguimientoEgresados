@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Graficas";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h2>Graficas</h2>
+
+
+<div class="row" style="margin-top:20px">
+    <div class="col-lg-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>Reporte de encuestas contestadas: 3 Ultimos meses</b> </div>
+            <div class="panel-body">
+                <canvas id="myBarChart" width="100" height="50"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>Reporte de encuestas contestadas: 3 Ultimos meses</b> </div>
+            <div class="panel-body">
+                <canvas id="myPieChart" width="100" height="50"></canvas>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<script>
+ // Bar Chart Example
+        var controlBar = document.getElementById("myBarChart");
+
+        var graficoBar = new Chart(controlBar, {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                datasets: [{
+                    label: "Revenue",
+                    backgroundColor: "#BB2100",
+                    borderColor: "rgba(2,117,216,1)",
+                    data: [4215, 5312, 6251, 7841, 9821, 14984],
+
+                    backgroundColor: ["#BB2100", "#03B100", "#0083B1", "#0800B1", "#EBFA00", "#FA00D8"],
+                    borderColor: "#000000",
+                    borderWidth: 0,
+                    data: [4215, 5312, 6251, 7841, 9821, 14984],
+                }],
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'month'
+                        },
+                        gridLines: {
+                            display: true
+                        },
+                        ticks: {
+                            maxTicksLimit: 6 //=> cuantos puntos X aparareceran
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 15000,
+                            maxTicksLimit: 4 //=> cuantos puntos Y aparareceran
+                        },
+                        gridLines: {
+                            display: true
+                        }
+                    }],
+                },
+                legend: {
+                    display: false // => activalo si deseas ver leyenda
+                }
+            }
+        });
+
+
+        // Pie Chart Example
+        var controlPie = document.getElementById("myPieChart");
+        var graficoPie = new Chart(controlPie, {
+            type: 'pie',
+            data: {
+                labels: ["Blue", "Red", "Yellow", "Green"],
+                datasets: [{
+                    data: [12.21, 15.58, 11.25, 8.32],
+                    backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                }],
+            },
+        });
+</script>
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>

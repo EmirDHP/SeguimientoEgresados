@@ -1,0 +1,373 @@
+-- Base de datos --
+CREATE DATABASE SEGUIMIENTO_EGRESADOS;
+
+USE SEGUIMIENTO_EGRESADOS;
+
+-- Tablas --
+CREATE TABLE USUARIOS(
+IdUsuario INT PRIMARY KEY IDENTITY(1,1),
+Nombres VARCHAR (100),
+ApellidoPaterno VARCHAR (100),
+ApellidoMaterno VARCHAR (100),
+Matricula VARCHAR (100),
+CorreoElectronico VARCHAR (150),
+Contraseña VARCHAR (150),
+IdPerfil int FOREIGN KEY REFERENCES PERFIL(IdPerfil)
+);
+
+
+INSERT INTO USUARIOS(Nombres, ApellidoPaterno, ApellidoMaterno, Matricula, CorreoElectronico, Contraseña, IdPerfil)
+VALUES 
+('Sarahi De Jesus', 'Alpirez', 'Cotero', '186A109015', 'sarahi@outlook.es', '186A109015', 2),
+('Emir Daniel', 'Hernandez', 'Perez', '186A109014', 'emir.perez@outlook.es', '186A109014', 2),
+('Myriam', 'Benítez', 'Cortes', 'MBC', 'myriam.benitez@uttn.mx', 'MBC', 1);
+
+ALTER TABLE USUARIOS
+ALTER COLUMN Area int;
+
+ALTER TABLE USUARIOS
+ADD  token_recovery VARCHAR(200);
+
+DROP TABLE USUARIOS;
+TRUNCATE TABLE USUARIOS;
+SELECT * FROM USUARIOS;
+SELECT * FROM [user];
+
+UPDATE USUARIOS SET CorreoElectronico = 'emir.perez@outlook.es' where IdUsuario = 2;
+
+-- Areas --
+CREATE TABLE AREA(
+IdArea INT PRIMARY KEY IDENTITY(1,1),
+NombreArea VARCHAR (100)
+);
+
+SELECT * FROM AREA;
+INSERT INTO AREA(NombreArea)
+VALUES
+('TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES'),
+('TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA'),
+('TSU EN TECNOLOGÍAS DE LA INFORMACIÓN, ÁREA INFRAESTRUCTURA DE REDES DIGITALES'),
+('ING. EN TECNOLOGÍAS DE LA INFORMACIÓN');
+
+-- Perfiles --
+CREATE TABLE PERFIL(
+IdPerfil INT PRIMARY KEY IDENTITY(1,1),
+Perfil VARCHAR (100)
+);
+
+INSERT INTO PERFIL(Perfil)
+VALUES ('Director'),('Egresado');
+
+SELECT * FROM PERFIL;
+SELECT * FROM PERFIL WHERE IdPerfil = 2;
+
+-- ENCUESTA --
+CREATE TABLE ENCUESTA(
+IdEncuesta INT PRIMARY KEY IDENTITY(1,1),
+Descripcion VARCHAR(100),
+Abierto_cerrado Bit,
+FechaEncuestaPublicado DATETIME DEFAULT CURRENT_TIMESTAMP,
+);
+
+SELECT * FROM PREGUNTAS_ESTABLECIDAS WHERE  TipoPregunta = 'PREG_DG_1';
+
+--  IP = Informacion Personal
+-- 	DG = Datos Generales
+--  SL = Situacion Laboral
+CREATE TABLE PREGUNTAS(
+IdPregunta INT PRIMARY KEY IDENTITY(1,1),
+IP_Nombres VARCHAR(100),
+IP_ApellidoPaterno VARCHAR(100),
+IP_ApellidoMaterno VARCHAR(100),
+IP_Matricula VARCHAR(100),
+IP_CorreoElectronicoPersonal VARCHAR(100),
+IP_NumeroTelefono VARCHAR(100),
+DG_EstadoCivil int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+DG_UltimoNivelEscolar int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+DG_InstitucionEstudiasActualmente int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG2 VARCHAR(100),
+SL_PREG3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+-- Pregunta 5 --
+SL_PREG5_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG5_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG5_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG5_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG5_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+SL_PREG6_1_NombreEmpresa VARCHAR(150),
+SL_PREG6_2_Municipio VARCHAR(100),
+SL_PREG6_3_Estado VARCHAR(100),
+SL_PREG7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG11 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG12 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG13 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+-- Pregunta 14 --
+SL_PREG14_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_6 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_11 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG14_12 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+SL_PREG15 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG16 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+-- Pregunta 17 --
+SL_PREG17_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_6 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG17_11 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+-- Pregunta 18 --
+SL_PREG18_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_6 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG18_11 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+-- Pregunta 19 --
+SL_PREG19_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_6 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG19_10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+-- Pregunta 20 --
+SL_PREG20_1 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_2 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_3 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_4 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_5 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_6 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_7 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_8 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_9 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_10 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_11 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_12 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG20_13 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+--
+SL_PREG21 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida),
+SL_PREG22 VARCHAR(100)
+);
+
+ALTER TABLE PREGUNTAS
+ADD IdArea int FOREIGN KEY REFERENCES AREA(IdArea), 
+AñoInico int FOREIGN KEY REFERENCES AÑO(IdAño),
+AñoFin int FOREIGN KEY REFERENCES AÑO(IdAño);
+
+CREATE TABLE AÑO(
+IdAño INT PRIMARY KEY IDENTITY(1,1),
+Año VARCHAR (100),
+Estado VARCHAR (100)
+);
+Exec SP_ObtenerPreguntasViewModel
+SELECT * FROM PREGUNTAS;
+SELECT * FROM AÑO WHERE Estado = 'Inicio';
+SELECT * FROM AÑO WHERE Estado = 'Fin';
+SELECT * FROM AREA;
+
+ALTER TABLE PREGUNTAS
+DROP CONSTRAINT IdPreguntaEstablecida;
+
+--CREATE TABLE Encuesta_Pregunta(
+--IdEncuesta_Pregunta INT PRIMARY KEY IDENTITY(1,1),
+--IdEncuesta INT FOREIGN KEY REFERENCES ENCUESTA(IdEncuesta),
+--IdPregunta INT FOREIGN KEY REFERENCES PREGUNTAS(IdPregunta),
+--);
+
+-- PUBLICACIONES DE EMPLEOS --
+CREATE TABLE PUBLICACIONES(
+IdPublicacion INT PRIMARY KEY IDENTITY(1,1),
+Titulo NVARCHAR(MAX),
+Descripcion NVARCHAR(MAX),
+Imagen NVARCHAR(MAX),
+FechaPublicaciones DATETIME DEFAULT CURRENT_TIMESTAMP,
+NombreEmpresa NVARCHAR(MAX),
+Tipo_Trabajo int FOREIGN KEY REFERENCES TIPO_TRABAJO(IdTipo_trabajo)
+);
+
+CREATE TABLE TIPO_TRABAJO(
+IdTipo_trabajo INT PRIMARY KEY IDENTITY(1,1),
+Tipo_Trabajo NVARCHAR(100),
+);
+
+INSERT INTO TIPO_TRABAJO(Tipo_Trabajo)
+VALUES 
+('Tiempo Completo'),
+('Medio Turno'),
+('Contrato'),
+('Temporal'),
+('Practicante');
+
+SELECT * FROM TIPO_TRABAJO;
+
+INSERT INTO PUBLICACIONES(Titulo, Descripcion, Imagen, NombreEmpresa, Tipo_Trabajo)
+VALUES 
+('Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae porta dui. Suspendisse ullamcorper justo et nunc viverra, ut facilisis erat pretium.', '/Images/Publicaciones/Erro en medidores aclara.png', 'Landis+Gyr', 1),
+('Lacus Urna', 'Donec pretium lacus sapien, sit amet hendrerit odio mattis sit amet. In tincidunt odio ut nulla posuere, non mattis quam euismod.', '/Images/Publicaciones/error lgas weco.PNG', 'iiMed', 2),
+('Aliquam dignissim lacus urna', 'quis bibendum erat lobortis sit amet. Donec pretium lacus sapien, sit amet hendrerit odio mattis sit amet. In tincidunt odio ut nulla posuere, non mattis quam euismod.', '/Images/Publicaciones/falla customer program path incorrecto224902921.PNG', 'BBB Industries', 3);
+
+UPDATE PUBLICACIONES SET FechaPublicaciones = (CURRENT_TIMESTAMP) WHERE IdPublicacion = 4;
+
+SELECT 
+PUBLICACIONES.IdPublicacion, PUBLICACIONES.Titulo, PUBLICACIONES.Descripcion, PUBLICACIONES.Imagen, PUBLICACIONES.FechaPublicaciones, PUBLICACIONES.NombreEmpresa, TIPO_TRABAJO.Tipo_Trabajo
+FROM PUBLICACIONES
+INNER JOIN TIPO_TRABAJO ON PUBLICACIONES.Tipo_Trabajo = TIPO_TRABAJO.IdTipo_trabajo;
+
+SELECT * FROM PUBLICACIONES;
+TRUNCATE TABLE PUBLICACIONES;
+DROP TABLE PUBLICACIONES;
+exec SP_ObtenerPublicaciones;
+
+CREATE TABLE PREGUNTAS_ESTABLECIDAS(
+IdPreguntaEstablecida INT PRIMARY KEY IDENTITY(1,1),
+Pregunta VARCHAR(250),
+TipoPregunta VARCHAR(100),
+);
+
+
+ALTER TABLE PREGUNTAS
+ALTER COLUMN SL_PREG22 int;
+
+SELECT * FROM PREGUNTAS_ESTABLECIDAS;
+SELECT * FROM PREGUNTAS;
+ALTER TABLE PREGUNTAS
+ADD CONSTRAINT FK_PregEst
+FOREIGN KEY (SL_PREG22) REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida);
+
+INSERT INTO AÑO(Año, Estado)VALUES
+('2015', 'Fin'),
+('2016', 'Fin'),
+('2017', 'Fin'),
+('2018', 'Fin'),
+('2019', 'Fin'),
+('2020', 'Fin'),
+('2021', 'Fin'),
+('2022', 'Fin'),
+('2023', 'Fin'),
+('2024', 'Fin'),
+('2025', 'Fin'),
+('2026', 'Fin'),
+('2027', 'Fin'),
+('2028', 'Fin'),
+('2029', 'Fin'),
+('2030', 'Fin'),
+('2031', 'Fin'),
+('2032', 'Fin'),
+('2033', 'Fin'),
+('2034', 'Fin'),
+('2035', 'Fin');
+
+SELECT * FROM PREGUNTAS_ESTABLECIDAS;
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Servicios del estado'
+WHERE IdPreguntaEstablecida = 107;
+
+CREATE TABLE GRAFICAS 
+(IdGrafica INT PRIMARY KEY IDENTITY(1,1),
+SL_PREG20_13 int FOREIGN KEY REFERENCES PREGUNTAS_ESTABLECIDAS(IdPreguntaEstablecida)
+
+-- CORECCIONES ORTOGRAFIAS --
+
+SELECT * FROM PREGUNTAS_ESTABLECIDAS;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Soltero (incluye divorciado y viudo)'
+WHERE IdPreguntaEstablecida = 1;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Casado o unión libre'
+WHERE IdPreguntaEstablecida = 2;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Licencia Profesional en alguna UT'
+WHERE IdPreguntaEstablecida = 4;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Licencia Profesional en el extranjero'
+WHERE IdPreguntaEstablecida = 5;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Ingeniería en alguna UT'
+WHERE IdPreguntaEstablecida = 6;
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'No estudio actualmente'
+WHERE Pregunta = 'No estidio actualmente';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Universidad Politécnica'
+WHERE Pregunta = 'Universidad Politecnica';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Te contrataron donde hiciste la estadía'
+WHERE Pregunta = 'Te contrataron donde hiciste la estadia';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Bolsa de trabajo de la UTTN'
+WHERE Pregunta = 'Bolsa de trabajo de la UT';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Industria maquiladora o manufactura'
+WHERE Pregunta = 'Industria de transformación, manufactura';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Creaste tu propio negocio con apoyo de la incubadora de empresas de la UTTN'
+WHERE Pregunta = 'Creaste tu propio negocio con apoyo de la incubadora de empresas de la UT';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Buscaste por tu cuenta en periódicos, internet y/o agencias de empleo'
+WHERE Pregunta = 'Buscaste por tu cuenta en periodicos, internet y/o agencias de empleo';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'En alguna medida'
+WHERE Pregunta = 'En algun medida';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Microempresa (de 1 a 10 empleados)'
+WHERE Pregunta = 'Microempresa (de 1 a 10 empelados)';
+
+UPDATE PREGUNTAS_ESTABLECIDAS
+SET Pregunta = 'Agricultura, ganadería, silvicultura o pesca'
+WHERE Pregunta = 'Agricultura, ganaderia, silvicultura o pesca';
+
+select * from AREA;
+
+UPDATE AREA
+SET NombreArea = 'INGENIERÍA EN DESARROLLO Y GESTIÓN DE SOFTWARE'
+WHERE NombreArea = 'ING. EN TECNOLOGÍAS DE LA INFORMACIÓN';
+
+INSERT INTO AREA (NombreArea)
+VALUES ('INGENIERÍA EN ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES');
+

@@ -1,0 +1,24 @@
+﻿@using SeguimientoEgresados.Models
+
+
+@*<ul class="nav navbar-nav navbar-right">*@
+    @if (Session["Usuario"] == null)
+    {
+        <a class="nav-link" href="@Url.Action("Registrarse", "Home")" style="color: #fff">
+            <h5>Registrarse</h5>
+        </a>
+        <a class="nav-link" href="@Url.Action("Index", "Login")" style="color: #fff">
+            <h5>Iniciar Sesión</h5>
+        </a>
+    }
+    else
+    {
+        Usuarios user = Session["Usuario"] as Usuarios;
+        <a class="nav-link" style="color: #fff">
+            <h5>¡Bienvenido @user.Nombres @user.ApellidoPaterno!</h5>
+        </a>
+        <a class="nav-link" href="@Url.Action("Logout", "Login")" style="color: #fff">
+            <h5>Cerrar Sesión</h5>
+        </a>
+    }
+@*</ul>*@

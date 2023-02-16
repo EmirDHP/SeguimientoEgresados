@@ -1,0 +1,1002 @@
+﻿@model SeguimientoEgresados.Models.Preguntas
+
+@{
+    ViewBag.Title = "Encuesta Egresados";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs visually-hidden">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#menu1">1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu2">2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu3">3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu4">4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu5">5</a>
+            </li>
+        </ul>
+
+
+        <!-- Comienza Menu 1 -->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="menu1">
+                <div class="col-md-6 offset-md-3 mt-2 mb-2 rounded">
+                    <div class="progress" style="height: 2rem;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20%</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 offset-md-3 p-3 shadow rounded" style="background-color: #03787c; color:white">
+                    <h2><strong>Encuesta Egresados</strong></h2> <hr />
+                    <p>Este cuestionario tiene por objeto recoger información sobre la experiencia laboral y escolar de los egresados. Su propósito es llevar a cabo un proceso permanente de revisión de la Pertinencia de los Planes y Programas de Estudio respecto a las demandas y requerimientos del mercado laboral. Las respuestas que proporciones son fundamentales para que esta tarea pueda cumplirse sobre la base de un conocimiento de la realidad educativa y ocupacional a la que el egresado se enfrenta. Por favor contesta todas las preguntas de manera veraz. La información recabada tendrá un carácter estrictamente confidencial e Institucional. Agradecemos  el apoyo que prestes a la presente encuesta. ¡¡¡Muchas gracias!!! </p>
+                </div>
+                <br />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h4 class="fw-bold text-center mt-3"></h4>
+                    <!-- INFORMACION PERSONAL -->
+                    <p class="fw-bold">Información Personal</p>
+                    @Html.LabelFor(model => model.IP_Nombres, htmlAttributes: new { @class = "control-label col-md-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_Nombres, new { htmlAttributes = new { @Value = ViewBag.Nombre, @class = "form-control required", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.IP_Nombres, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IP_ApellidoPaterno, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_ApellidoPaterno, new { htmlAttributes = new { @Value = ViewBag.Paterno, @class = "form-control", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.IP_ApellidoPaterno, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IP_ApellidoMaterno, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_ApellidoMaterno, new { htmlAttributes = new { @Value = ViewBag.Materno, @class = "form-control", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.IP_ApellidoMaterno, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IP_Matricula, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_Matricula, new { htmlAttributes = new { @Value = ViewBag.Matricula, @class = "form-control", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.IP_Matricula, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IP_CorreoElectronicoPersonal, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_CorreoElectronicoPersonal, new { htmlAttributes = new { @Value = ViewBag.CorreoElectronico, @class = "form-control", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.IP_CorreoElectronicoPersonal, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IP_NumeroTelefono, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.IP_NumeroTelefono, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.IP_NumeroTelefono, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.Areas, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.Areas,
+                    new SelectList(ViewBag.AreaLista, "IdArea", "NombreArea"),
+                    new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.Areas, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.AñoInico, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.AñoInico,
+                    new SelectList(ViewBag.AñoInicioLista, "IdAño", "Años"),
+                    new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.AñoInico, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.AñoFin, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.AñoFin,
+                    new SelectList(ViewBag.AñoFinLista, "IdAño", "Años"),
+                    new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.AñoFin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary btnNext" href="#menu2">Siguente</a>
+                </div>
+                <!-- TERMNA INFORMACION PERSONAL -->
+            </div>
+            <!-- Termina Menu 1 -->
+            <!-- Comienza Menu 2 -->
+            <div class="tab-pane container fade" id="menu2">
+                <div class="col-md-6 offset-md-3 mt-2 mb-2 rounded">
+                    <div class="progress" style="height: 2rem;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%</div>
+                    </div>
+                </div>
+
+                <!-- DATOS GENERALES-->
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h4 class="fw-bold text-center mt-3"></h4>
+                    <p class="fw-bold">Datos Generales</p>
+
+                    @Html.LabelFor(model => model.DG_EstadoCivil, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.DG_EstadoCivil,
+                    new SelectList(ViewBag.Preg1, "IdPreguntaEstablecida", "Pregunta", "Seleccione una pregunra"),
+                    new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.DG_EstadoCivil, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.DG_UltimoNivelEscolar, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.DG_UltimoNivelEscolar,
+                        new SelectList(ViewBag.Preg2, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.DG_UltimoNivelEscolar, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.DG_InstitucionEstudiasActualmente, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.DG_InstitucionEstudiasActualmente,
+                        new SelectList(ViewBag.Preg3, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.DG_InstitucionEstudiasActualmente, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- DATOS GENERALES-->
+                <!-- SITUACION LABORAL -->
+                <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h4 class="fw-bold text-center mt-3"></h4>
+                    <p class="fw-bold">Situación Laboral</p>
+
+                    @Html.LabelFor(model => model.SL_PREG1, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG1,
+                        new SelectList(ViewBag.Preg18, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG2, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.SL_PREG2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SL_PREG2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG3, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG3,
+                    new SelectList(ViewBag.Preg4, "idpreguntaestablecida", "pregunta"),
+                    new { @class = "form-select" })
+
+                        @Html.ValidationMessageFor(model => model.SL_PREG3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG4, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG4,
+                        new SelectList(ViewBag.Preg5, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG4, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- PREGUNTAS AGRUPADOS -->
+                    <h6 style="margin-top:2rem">¿En qué medida consideras que influyeron los siguientes factores en la obtención del empleo?</h6>
+                    <a>
+                        <strong>1.Nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>2.Casi nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>3.En alguna medida	</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>4.Bastante</strong>
+                    </a><br />
+
+                    @Html.LabelFor(model => model.SL_PREG5_1, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG5_1,
+                        new SelectList(ViewBag.Preg6, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG5_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG5_2, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG5_2,
+                        new SelectList(ViewBag.Preg6, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG5_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG5_3, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG5_3,
+                        new SelectList(ViewBag.Preg6, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG5_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG5_4, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG5_4,
+                        new SelectList(ViewBag.Preg6, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG5_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG5_5, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG5_5,
+                        new SelectList(ViewBag.Preg6, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG5_5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA PREGUNTAS AGRUPADOS -->
+                <div class="text-center">
+                    <a class="btn btn-primary btnPrevious">Regresar</a>
+                    <a class="btn btn-primary btnNext" href="#menu2">Siguente</a>
+                </div>
+            </div>
+            <!-- Termina Menu 2 -->
+            <!-- Comienza Menu 3 -->
+            <div class="tab-pane container fade" id="menu3">
+
+                <div class="col-md-6 offset-md-3 mt-2 mb-2 rounded">
+                    <div class="progress" style="height: 2rem;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
+                    </div>
+                </div>
+
+                <!-- PRESTACIONES DE LE EMPRESA -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <p class="fw-bold">Prestaciones de la empresa</p>
+
+                    <h6 style="margin-top:2rem">¿Cuentas con las siguientes prestaciones?</h6>
+
+                    @Html.LabelFor(model => model.SL_PREG14_1, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_1,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_2, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_2,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_3, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_3,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_4, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_4,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_5, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_5,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_5, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_6, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_6,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_6, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_7, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_7,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_8, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_8,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_9, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_9,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_10, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_10,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_11, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_11,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_11, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG14_12, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG14_12,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG14_12, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA PRESTACIONES DE LE EMPRESA -->
+                <!-- SITUACION LABORAL -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+
+                    @Html.LabelFor(model => model.SL_PREG15, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG15,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG15, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG16, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG16,
+                        new SelectList(ViewBag.Preg15, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG16, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA SITUACION LABORAL -->
+                <!-- AGRUPACION PREGUNTA 17 -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h6 style="margin-top:2rem">De las siguientes habilidades, indica. Qué tanto tu trabajo actual o el último que desempeñaste las requirió</h6>
+                    <a>
+                        <strong>1.Nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>2.Poco</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>3.Más o menos</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>4.Mucho</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a><br />
+
+                    @Html.LabelFor(model => model.SL_PREG17_1, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_1,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_2, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_2,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_3, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_3,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_4, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_4,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_5, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_5,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_5, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_6, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_6,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_6, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_7, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_7,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_8, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_8,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_9, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_9,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_10, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_10,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG17_11, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG17_11,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG17_11, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- AGRUPACION PREGUNTA 17 -->
+                <!-- AGRUPACION PREGUNTA 18 -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h6 style="margin-top:2rem">De las siguientes habilidades, indica. En qué medida la Universidad contribuyó a desarrollarlas</h6>
+                    <a>
+                        <strong>1.Nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>2.Poco</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>3.Más o menos</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>4.Mucho</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a><br />
+
+                    @Html.LabelFor(model => model.SL_PREG18_1, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_1,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_2, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_2,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_3, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_3,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_4, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_4,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_5, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_5,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_5, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_6, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_6,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_6, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_7, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_7,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_8, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_8,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_9, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_9,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_10, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_10,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG18_11, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG18_11,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG18_11, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- AGRUPACION PREGUNTA 18 -->
+
+                <br /><div class="text-center">
+                    <a class="btn btn-primary btnPrevious">Regresar</a>
+                    <a class="btn btn-primary btnNext" href="#menu3">Siguente</a>
+                </div>
+            </div>
+            <!-- Termina Menu 3 -->
+            <!-- Comienza Menu 4 -->
+            <div class="tab-pane container fade" id="menu4">
+
+                <div class="col-md-6 offset-md-3 mt-2 mb-2 rounded">
+                    <div class="progress" style="height: 2rem;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80%</div>
+                    </div>
+                </div>
+
+                <!-- AGRUPACION PREGUNTA 19 -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h6 style="margin-top:2rem">¿Qué tan satisfecho estás con los siguientes aspectos de tu empleo actual o del último que desempeñaste?</h6>
+                    <a>
+                        <strong>1.Nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>2.Poco</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>3.Más o menos</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>4.Mucho</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a><br />
+
+                    @Html.LabelFor(model => model.SL_PREG19_1, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_1,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_2, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_2,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_3, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_3,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_4, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_4,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_5, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_5,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_5, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_6, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_6,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_6, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_7, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_7,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_8, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_8,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_9, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_9,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG19_10, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG19_10,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG19_10, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA AGRUPACION PREGUNTA 19 -->
+                <!-- AGRUPACION PREGUNTA 20 -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <h6 style="margin-top:2rem">A partir de tu experiencia actual ¿Qué tan adecuados consideras los siguientes aspectos de tu formación profesional?</h6>
+                    <a>
+                        <strong>1.Nada </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>2.Poco</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>3.Más o menos</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>4.Mucho</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a><br />
+
+                    @Html.LabelFor(model => model.SL_PREG20_1, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_1,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_2, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_2,
+                        new SelectList(ViewBag.Preg20_2, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_2, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_3, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_3,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_3, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_4, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_4,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_4, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_5, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_5,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_5, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_6, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_6,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_6, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_7, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_7,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_8, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_8,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_9, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_9,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_10, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_10,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_11, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_11,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_11, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_12, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_12,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_12, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG20_13, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG20_13,
+                        new SelectList(ViewBag.Preg20_1, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG20_13, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA AGRUPACION PREGUNTA 20 -->
+
+
+                <div class="text-center">
+                    <a class="btn btn-primary btnPrevious">Regresar</a>
+                    <a class="btn btn-primary btnNext" id="back-to-top">Siguente</a>
+                </div>
+            </div>
+            <!-- Termina Menu 4 -->
+            <!-- Comienza Menu 5 -->
+            <div class="tab-pane container fade" id="menu5">
+
+                <div class="col-md-6 offset-md-3 mt-2 mb-2 rounded">
+                    <div class="progress" style="height: 2rem;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+                    </div>
+                </div>
+
+                <!-- DATOS DE LA EMPRESA -->
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <p class="fw-bold">Datos de la empresa</p>
+
+                    @Html.LabelFor(model => model.SL_PREG6_1_NombreEmpresa, htmlAttributes: new { @class = "control-label p-2" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.SL_PREG6_1_NombreEmpresa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SL_PREG6_1_NombreEmpresa, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG6_2_Municipio, htmlAttributes: new { @class = "control-label p-2" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.SL_PREG6_2_Municipio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SL_PREG6_2_Municipio, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG6_3_Estado, htmlAttributes: new { @class = "control-labe p-2" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.SL_PREG6_3_Estado, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SL_PREG6_3_Estado, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG7, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG7,
+                        new SelectList(ViewBag.Preg7, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG7, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG8, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG8,
+                        new SelectList(ViewBag.Preg8, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG8, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG9, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG9,
+                        new SelectList(ViewBag.Preg9, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG9, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG10, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG10,
+                        new SelectList(ViewBag.Preg10, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG11, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG11,
+                        new SelectList(ViewBag.Preg11, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG10, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG12, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG12,
+                        new SelectList(ViewBag.Preg12, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG12, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG13, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG13,
+                        new SelectList(ViewBag.Preg13, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG13, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+
+                    @Html.LabelFor(model => model.SL_PREG21, htmlAttributes: new { @class = "control-label" })
+                    <div class="col">
+                        @Html.DropDownListFor(model => model.SL_PREG21,
+                        new SelectList(ViewBag.Preg17, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG21, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.SL_PREG22, htmlAttributes: new { @class = "control-label p-2", @style = "padding-bottom: 1rem" })
+                    <div class="col">
+
+                        @Html.DropDownListFor(model => model.SL_PREG22,
+                        new SelectList(ViewBag.Preg4, "IdPreguntaEstablecida", "Pregunta"),
+                        new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.SL_PREG22, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- TERMINA DATOS DE LA EMPRESA -->
+
+                <div class="d-grid gap-2 d-md-flex justify-content-center mt-3">
+                    <div class="text-center">
+                        <a class="btn btn-primary btnPrevious" href="#menu2">Regresar</a>
+                        @*@Html.ActionLink("Regresar", "Index", "UsuarioPreguntas", null, new { @class = "btn btn-primary btn-md me-md-2" })*@
+                    </div>
+                    <div>
+                        <input type="submit" value="Enviar" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+            <!-- Termina Menu 5 -->
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
+
+
+    </div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+<script>
+    $('.btnNext').click(function () {
+        const nextTabLinkEl = $('.nav-tabs .active').closest('li').next('li').find('a')[0];
+        const nextTab = new bootstrap.Tab(nextTabLinkEl);
+        nextTab.show();
+    });
+
+    $('.btnPrevious').click(function () {
+        const prevTabLinkEl = $('.nav-tabs .active').closest('li').prev('li').find('a')[0];
+        const prevTab = new bootstrap.Tab(prevTabLinkEl);
+        prevTab.show();
+    });
+</script>
+
+<script>
+    //Get the button
+    let mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    //function scrollFunction() {
+    //    if (
+    //        document.body.scrollTop > 20 ||
+    //        document.documentElement.scrollTop > 20
+    //    ) {
+    //        mybutton.style.display = "";
+    //    } else {
+    //        mybutton.style.display = "none";
+    //    }
+    //}
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener("click", backToTop);
+
+    function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>

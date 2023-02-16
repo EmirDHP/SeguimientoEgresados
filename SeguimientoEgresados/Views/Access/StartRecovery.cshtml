@@ -1,0 +1,50 @@
+﻿@model SeguimientoEgresados.Models.RecoveryViewModel
+
+@{
+    ViewBag.Title = "Recuperar Contrasena";
+}
+
+@*<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="form-style">
+            <form action="@Url.Content("~/Access/StartRecovery")" method="post">
+
+                <lable>Escribe tu correo electronico</lable>
+                @Html.TextBoxFor(d => d.email, null, new { @class = "from-control" })
+                @Html.ValidationMessageFor(d => d.email, null, new { @style = "color:red;" })
+                <br />
+                <div class="text-right">
+                    <button class="btn btn-primary">Recuperar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Recuperar Contraseña</h3></div>
+                <div class="card-body">
+                    <div class="small mb-3 text-muted">Ingresa tu correo electronico con el que te registrarte, recibiras un correo para restablecer la contraseña.
+                    <strong>Si no recibes el correo verifica la bandeja de correos no deseados.</strong>
+                    </div>
+                    <form action="@Url.Content("~/Access/StartRecovery")" method="post">
+                        <div class="mb-4 mt-4">
+                            @Html.TextBoxFor(d => d.email, null, new { @class = "from-control col-12", @placeholder = "Correo Electronico" })
+                            @Html.ValidationMessageFor(d => d.email, null, new { @style = "color:red;" })
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary">Recuperar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a href="~/Login/Index">¿Ya tienes una cuenta? ¡Inicia sesión aquí!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

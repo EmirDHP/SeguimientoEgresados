@@ -1,0 +1,762 @@
+﻿@model SeguimientoEgresados.Models.ViewModel_Preguntas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<div class="card shadow-lg mb-5 bg-body rounded">
+    <div class="card-header">
+        <h3>Detalles de la encuesta</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="my-3 p-3 bg-body">
+            <div class="d-flex text-muted">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">Nombres</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_Nombres) </span>
+                </div>
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">Apellido Paterno</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_ApellidoPaterno) </span>
+                </div>
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">Apellido Materno</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_ApellidoMaterno) </span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">Matricula</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_Matricula)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.IP_CorreoElectronicoPersonal)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_CorreoElectronicoPersonal)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.IP_NumeroTelefono)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.IP_NumeroTelefono)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.Areas)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.Areas)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.AñoInico)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.AñoInico)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.AñoFin)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.AñoFin)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.DG_EstadoCivil)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.DG_EstadoCivil)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.DG_UltimoNivelEscolar)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.DG_UltimoNivelEscolar)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.DG_InstitucionEstudiasActualmente)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.DG_InstitucionEstudiasActualmente)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG5_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG5_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG5_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG5_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG5_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG5_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG5_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG5_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG5_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG5_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG6_1_NombreEmpresa)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG6_1_NombreEmpresa)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG6_2_Municipio)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG6_2_Municipio)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG6_3_Estado)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG6_3_Estado)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG11)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG11)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG12)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG12)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG13)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG13)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_6)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_6)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_11)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_11)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG14_12)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG14_12)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG15)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG15)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG16)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG16)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_6)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_6)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG17_11)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG17_11)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_6)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_6)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG18_11)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG18_11)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_6)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_6)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG19_10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG19_10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_1)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_1)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_2)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_2)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_3)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_3)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_4)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_4)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_5)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_5)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_6)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_6)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_7)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_7)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_8)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_8)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_9)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_9)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_10)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_10)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_11)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_11)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_12)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_12)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG20_13)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG20_13)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG21)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG21)</span>
+                </div>
+            </div>
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong class="text-gray-dark">@Html.DisplayNameFor(model => model.SL_PREG22)</strong>
+                    </div>
+                    <span class="d-block">@Html.DisplayFor(model => model.SL_PREG22)</span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="d-grid gap-2 col-6 mx-auto">
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary btn-md me-md-2" })
+        </div>
+
+    </div>
+    <br />
+
+
+</div>

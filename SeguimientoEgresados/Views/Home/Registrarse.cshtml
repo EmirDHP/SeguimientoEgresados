@@ -1,0 +1,123 @@
+﻿@model SeguimientoEgresados.Models.Usuarios
+
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+
+<style>
+    form i {
+        margin-left: -30px;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Registrarse</h3></div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form mb-3 mb-md-0">
+                                        @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(n => n.Nombres) } })
+                                        @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form mb-md-0">
+                                        @Html.EditorFor(model => model.ApellidoPaterno, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(n => n.ApellidoPaterno) } })
+                                        @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form mb-3 mb-md-0">
+                                        @Html.EditorFor(model => model.ApellidoMaterno, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(n => n.ApellidoMaterno) } })
+                                        @Html.ValidationMessageFor(model => model.ApellidoMaterno, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form mb-md-0">
+                                        @Html.EditorFor(model => model.Matricula, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(n => n.Matricula) } })
+                                        @Html.ValidationMessageFor(model => model.Matricula, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form mb-3">
+                                @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control bi bi-eye-slash", @placeholder = "Contraseña", @type = "password", @id = "togglePassword" } })
+                                @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 visually-hidden">
+                                    <div class="form mb-3 mb-md-0">
+                                        @Html.DropDownListFor(model => model.IdPerfil,
+                                        new SelectList(ViewBag.Perfil, "IdPerfil", "Perfil"),
+                                        new { @class = "form-select" })
+                                        @Html.ValidationMessageFor(model => model.IdPerfil, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form mb-3">
+                                @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(n => n.CorreoElectronico), @type = "email" } })
+                                @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <input type="submit" value="Crear cuenta" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small"><a href="~/Login/Index">¿Ya tienes una cuenta? ¡Inicia sesión aquí!</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    const togglePassword = document
+        .querySelector('#togglePassword');
+
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', () => {
+
+        // Toggle the type attribute using
+        // getAttribure() method
+        const type = password
+            .getAttribute('type') === 'password' ?
+            'text' : 'password';
+
+        password.setAttribute('type', type);
+
+        // Toggle the eye and bi-eye icon
+        this.classList.toggle('bi-eye');
+    });
+</script>
